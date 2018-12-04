@@ -17,3 +17,6 @@ phidval = double(subs(phid,t,times));
 
 render([THETA(:,1) phival],times,rw);
 plot_the_plots(times,THETA,phival,phidval,tau,rw);
+
+%% save openloop tape
+save('openlooptape.mat','THETA','phival','phidval','tau','times');
