@@ -1,0 +1,16 @@
+rw = 0.1058;
+rr = 0.006335;
+mw = 2.44;
+Iw = 0.0174;
+lb = 0.69;
+Ib_xx = 12.59;
+Ib_yy = 12.48;
+Ib_zz = 0.66;
+mb = 51.66;
+Dc = 3.82;
+Dv = 3.68;
+Ki = 2.128;
+g = 9.8;
+alp = Iw + (mw+mb)*rw*rw;
+bet = mb*rw*lb;
+gam = 0.5*(Ib_xx+Ib_yy) + mb*lb*lb;
