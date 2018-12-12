@@ -7,6 +7,7 @@ thetadf = 1/rw;
 %% optimization
 func = @(x) cost_function(x,alp,bet,gam,g,rw,Dc,Dv,thetadf);
 
+% options = optimset('Display','iter','PlotFcns',@optimplotfval);
 options = optimset('Display','iter');
 [x,fval,exitflag] = fminsearch(func,x0,options);
 
@@ -19,4 +20,4 @@ render([THETA(:,1) phival],times,rw);
 plot_the_plots(times,THETA,phival,phidval,tau,rw);
 
 %% save openloop tape
-save('openlooptape.mat','THETA','phival','phidval','tau','times');
+% save('openlooptape.mat','THETA','phival','phidval','tau','times');
