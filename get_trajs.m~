@@ -5,17 +5,14 @@ syms t;
 K = 9;
 
 t0 = ?;
-X0 = ?;
-X0dot = ?;
 
 tm = (X(3) + t0)/2;
 
 splX = [t0 X(3)];
-splY = [X0dot X0 X(4) X(5)];
-A = spline(splX,splY);
+splY = [
 
 phi = X(1)*sech(K*(2*t-tm-t0)/(tm-t0)) + X(2)*sech(K*(2*t-X(3)-tm)/(X(3)-tm)) + ...
-    A(4) + A(3)*t + A(2)*t^2 + A(1)*t^3;
+    A + B*t + C*t^2 + D*t^3;
 phid = diff(phi,t);
 phidd = diff(phid,t);
 thetadd = (bet*(g/rw)*sin(phi)+bet*sin(phi)*phid*phid - (alp+gam+2*bet*cos(phi))*phidd)/(alp+bet*cos(phi));
