@@ -1,4 +1,4 @@
-function render(X,times,rw)
+function render(X,times,rw,xw,yw)
 
 % RENDER 2-D simulation of ballbot
 % ARGS X: array of size (N,2) where N is length of sequence to be simulated
@@ -8,21 +8,33 @@ r = rw;
 l = 1;
 b = 2*r;
 length = size(X,1);
-figure; hold on;
+figure; 
+subplot(2,1,1); hold on;
 xlabel('X');
 ylabel('Z');
 title('2D Rendering of the Ballbot');
-
-w = waitforbuttonpress;
 xlim([-2 2]);
 ylim([0 2]);
+
+subplot(2,1,2); hold on;
+xlabel('X');
+ylabel('Y');
+title('Movement of Ballbot along floor');
+plot(0,0,'rs','MarkerSize',14);
+plot(1,1,'ro','MarkerSize',7);
+
+w = waitforbuttonpress;
 for j = 1:length
    t0 = cputime;
-   cla;
    x = r*(X(j,1)+X(j,2));
+   subplot(2,1,1);
+   cla;
    viscircles([x,r],r);
    plot_rectangle(x,X(j,2));
+   subplot(2,1,2);
+   plot(xw(j),yw(j),'ks','MarkerSize',4);
    drawnow;
+   
    t1 = cputime;
    if j<length
     pause(times(j+1)-times(j)-(t1-t0));
