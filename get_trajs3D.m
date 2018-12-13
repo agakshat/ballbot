@@ -1,4 +1,4 @@
-function [t,phi,phid,times,THETA,tau] = get_trajs(X,alp,bet,gam,g,rw,Dc,Dv)
+function [t,phi,phid,times,THETA,tau] = get_trajs3D(X,alp,bet,gam,g,rw,Dc,Dv)
 
 syms t;
 K = 9;
